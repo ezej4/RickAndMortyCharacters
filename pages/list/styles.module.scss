@@ -1,0 +1,42 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
+.list {
+  color: $font-color;
+  margin: 0 auto;
+  min-width: $mobile-min-width;
+  max-width: $mobile-max-width;
+  width: 100%;
+  display: block;
+}
+
+.container {
+  margin-top: 24px;
+  width: 100%;
+}
+
+.title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.pagination {
+  width: 100%;
+  margin-top: 8px;
+  overflow: hidden;
+  ul {
+    justify-content: center;
+    button {
+      color: $font-color;
+    }
+  }
+}
+
+@include for-desktop {
+  .list {
+    max-width: $desktop-min-width;
+    min-width: none;
+  }
+}

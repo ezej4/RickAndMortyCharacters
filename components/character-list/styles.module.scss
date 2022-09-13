@@ -1,0 +1,26 @@
+@import "../../styles/mixins.scss";
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  max-height: calc(100vh - 200px);
+  min-height: 500px;
+  height: 100%;
+  overflow: auto;
+}
+
+@include for-big-mobile {
+  .list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+}
+
+
+@include for-desktop {
+  .list {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+}

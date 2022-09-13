@@ -1,0 +1,16 @@
+@import "../../styles/variables.scss";
+
+.filter_container {
+  display: flex;
+  margin-bottom: 12px;
+  svg {
+    margin-right: 0;
+  }
+}
+
+.input {
+  width: 100%;
+  div::after {
+    border-bottom: 2px solid $brown-color;
+  }
+}
