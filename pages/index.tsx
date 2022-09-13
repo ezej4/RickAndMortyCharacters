@@ -18,9 +18,11 @@ export async function getServerSideProps() {
     error: null,
   };
 
+  console.time("response")
   try {
     const data = await charactersService.getCharactersFirstPage();
     result.data = data;
+    console.timeEnd("response")
   } catch (error) {
     result.error = error;
   }
@@ -53,7 +55,7 @@ const List = ({ data, error }: { data: ICharacterList; error: any }) => {
     <>
       <Head>
         <meta charSet="utf-8" />
-        <link rel="shortcut icon" href="/favicon.ico" />
+        {/* <link rel="shortcut icon" href="/favicon.ico" /> */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title></title>
       </Head>
