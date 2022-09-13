@@ -6,7 +6,7 @@ import { ICharacter } from "../../../entities";
 import * as charactersService from "../../../services/characters";
 import styles from "./styles.module.scss";
 
-export async function getServerSideProps({ query }) {
+export async function getServerSideProps({ query }: { query: any }) {
   const { character_id } = query;
   let result: {
     character: ICharacter | null;
@@ -38,7 +38,7 @@ const Detail = ({ character }: { character: ICharacter }) => {
   return (
     <main className={styles.detail}>
       <Container className={styles.container}>
-        <ArrowBack onClick={goBack} fontSize="large" className={styles.back_arrow}/>
+        <ArrowBack onClick={goBack} fontSize="large" className={styles.back_arrow} />
         <CharacterProfile character={character} />
       </Container>
     </main>

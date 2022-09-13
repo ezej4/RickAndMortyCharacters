@@ -18,7 +18,7 @@ const FilterByName = ({ filterCharacters }: { filterCharacters: (name: string) =
     return () => clearTimeout(search);
   }, [name]);
 
-  const handleTextChange = (e) => {
+  const handleTextChange = (e: any) => {
     startTimmer.current = true;
     setName(e.target.value);
   };
@@ -28,13 +28,13 @@ const FilterByName = ({ filterCharacters }: { filterCharacters: (name: string) =
       <TextField
         className={styles.input}
         variant="standard"
-        id="input-with-sx" 
+        id="input-with-sx"
         value={name}
         onChange={handleTextChange}
       />
       {isSearching ? (
         <Delete
-        className={styles.delete_icon}
+          className={styles.delete_icon}
           sx={{ color: "action.active", mr: 1, my: 0.5 }}
           onClick={() => {
             setName("");
