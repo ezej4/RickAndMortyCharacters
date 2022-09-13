@@ -7,7 +7,8 @@
   max-height: calc(100vh - 200px);
   min-height: 500px;
   height: 100%;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 @include for-big-mobile {
@@ -17,10 +18,22 @@
   }
 }
 
-
 @include for-desktop {
   .list {
     grid-template-columns: repeat(4, 1fr);
     gap: 24px;
+
+    &::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.8);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $blue-color;
+      outline: 1px solid $blue-color
+    }
   }
 }
