@@ -3,6 +3,7 @@ interface ICharacter {
   name: string;
   status: string;
   species: string;
+  gender: string;
   type: string;
   origin: {
     name: string;
@@ -14,7 +15,7 @@ interface ICharacter {
   episode: {
     name: string;
     episode: string;
-  };
+  }[];
 }
 
 export default ICharacter;

@@ -1,0 +1,105 @@
+@import "../../styles/mixins.scss";
+
+.profile,
+.text,
+.title {
+  margin-top: 12px;
+}
+.body,
+.header {
+  display: flex;
+  flex-direction: column;
+}
+
+.group_title,
+.value_title,
+.episodes_title {
+  font-size: 16px;
+}
+.texts,
+.episodes {
+  margin-top: 24px;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
+  background: #fafafa;
+  padding: 12px;
+}
+.image_container {
+  display: flex;
+  justify-content: center;
+}
+
+.title {
+  text-align: center;
+}
+
+.texts {
+  width: 100%;
+  margin-left: 24px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+
+  &_title {
+    font-weight: bold;
+  }
+  &_value {
+    margin-top: 8px;
+    text-overflow: ellipsis;
+    max-width: 200px;
+    overflow: hidden;
+  }
+}
+
+.episodes {
+  display: flex;
+  flex-direction: column;
+  &_title {
+    text-align: center;
+  }
+  &_list {
+    margin: 14px auto 24px;
+    flex-direction: column;
+    max-height: 150px;
+    width: 280px;
+    overflow: auto;
+    background: white;
+    li {
+      padding: 4px 8px;
+    }
+  }
+}
+
+@include for-desktop {
+  .profile {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 40px;
+  
+  }
+  .title {
+    margin-top: 12px;
+    font-size: 24px;
+  }
+  .group_title,
+  .value_title,
+  .episodes_title {
+    font-size: 20px;
+  }
+  .group {
+    &_value {
+      max-width: 400px;
+    }
+  }
+}

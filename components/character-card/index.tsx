@@ -6,7 +6,7 @@ import styles from "./styles.module.scss";
 
 const CharacterCard = ({ character }: { character: ISummarizedCharacter }) => {
   return (
-    <CardActionArea className={styles.card}>
+    <CardActionArea className={styles.card} href={`/detail/${character.id}`}>
       <CardMedia
         component="img"
         height="180"

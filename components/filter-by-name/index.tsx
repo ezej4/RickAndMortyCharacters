@@ -34,6 +34,7 @@ const FilterByName = ({ filterCharacters }: { filterCharacters: (name: string) =
       />
       {isSearching ? (
         <Delete
+        className={styles.delete_icon}
           sx={{ color: "action.active", mr: 1, my: 0.5 }}
           onClick={() => {
             setName("");

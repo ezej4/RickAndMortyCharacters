@@ -1,13 +1,14 @@
-@import "../../styles/variables.scss";
-@import "../../styles/mixins.scss";
+@import "../styles/variables.scss";
+@import "../styles/mixins.scss";
 
 .list {
-  color: $font-color;
+  position: relative;
+  display: block;
+  color: $bg-color;
   margin: 0 auto;
   min-width: $mobile-min-width;
   max-width: $mobile-max-width;
   width: 100%;
-  display: block;
 }
 
 .container {
@@ -29,7 +30,7 @@
   ul {
     justify-content: center;
     button {
-      color: $font-color;
+      color: $bg-color;
     }
   }
 }
