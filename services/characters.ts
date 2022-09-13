@@ -124,7 +124,7 @@ const getCharacters = async (filters: IFilters) => {
   return await Promise.resolve(result);
 };
 
-const getCharacter = async (id: umber) => {
+const getCharacter = async (id: number) => {
   const { data } = await axios.post(baseUrl, {
     query: getCharacterQuery,
     variables: { id },
