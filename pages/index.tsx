@@ -53,7 +53,7 @@ const List = ({ data }: { data: ICharacterList; error: any }) => {
         <meta charSet="utf-8" />
         <link rel="shortcut icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title></title>
+        <title>Rick and Morty Character finder</title>
       </Head>
       <main className={styles.list}>
         <Container className={styles.container}>

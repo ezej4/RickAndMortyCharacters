@@ -1,6 +1,7 @@
+import Head from "next/head";
+import { useRouter } from "next/router";
 import { Container } from "@mui/material";
 import { ArrowBack } from "@mui/icons-material";
-import { useRouter } from "next/router";
 import CharacterProfile from "../../../components/character-profile";
 import { ICharacter } from "../../../entities";
 import * as charactersService from "../../../services/characters";
@@ -34,12 +35,20 @@ const Detail = ({ character }: { character: ICharacter }) => {
   };
 
   return (
-    <main className={styles.detail}>
-      <Container className={styles.container}>
-        <ArrowBack onClick={goBack} fontSize="large" className={styles.back_arrow} />
-        <CharacterProfile character={character} />
-      </Container>
-    </main>
+    <>
+      <Head>
+        <meta charSet="utf-8" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Rick and Morty Character finder</title>
+      </Head>
+      <main className={styles.detail}>
+        <Container className={styles.container}>
+          <ArrowBack onClick={goBack} fontSize="large" className={styles.back_arrow} />
+          <CharacterProfile character={character} />
+        </Container>
+      </main>
+    </>
   );
 };
 
