@@ -9,31 +9,31 @@ import useCharactersList from "../hooks/useCharactersList";
 import styles from "./styles.module.scss";
 import Empty from "../components/empty";
 
-export async function getServerSideProps() {
-  console.log("entrando a get server side props")
-  try {
-    const data = await charactersService.getCharactersFirstPage();
-    console.log("saliiendo de get server side props")
-    
-    return {
-      props: {
-        data,
-      },
-    };
-  } catch (error) {
-    console.log("error has append", error);
+// export async function getServerSideProps() {
+//   console.log("entrando a get server side props")
+//   try {
+//     const data = await charactersService.getCharactersFirstPage();
+//     console.log("saliiendo de get server side props")
 
-    return {
-      redirect: {
-        permanent: true,
-        destination: "/error",
-      },
-    };
-  }
-}
+//     return {
+//       props: {
+//         data,
+//       },
+//     };
+//   } catch (error) {
+//     console.log("error has append", error);
 
-const List = ({ data }: { data: ICharacterList; error: any }) => {
-  console.log("entrando a list")
+//     return {
+//       redirect: {
+//         permanent: true,
+//         destination: "/error",
+//       },
+//     };
+//   }
+// }
+
+const List = ({ data }: { data: ICharacterList }) => {
+  console.log("entrando a list");
   const {
     data: dataCharacters,
     loading,
@@ -43,9 +43,9 @@ const List = ({ data }: { data: ICharacterList; error: any }) => {
     filterCharacters,
   } = useCharactersList(data);
 
-  const emptyResult = dataCharacters.results.length === 0;
+  const emptyResult = dataCharacters && dataCharacters.results.length === 0;
   const showLoader = loading;
-  const showData = !loading;
+  const showData = dataCharacters && !loading;
   const showEmptyState = !loading && emptyResult;
   const showPagination = !emptyResult;
 

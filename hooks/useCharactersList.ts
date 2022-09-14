@@ -6,28 +6,12 @@ import configs from "../configs";
 const { defaultPage } = configs;
 
 const useCharactersList = (initialData: ICharacterList) => {
-  const [data, setData] = useState(initialData);
+  const [data, setData] = useState<ICharacterList>();
   const [loading, setLoading] = useState(false);
   const [errorOnChangePage, setErrorOnChangePage] = useState(null);
-  const [amountOfPages, setAmountOfPages] = useState(initialData.info.pages);
+  const [amountOfPages, setAmountOfPages] = useState(0);
   const [currentPage, setCurrentPage] = useState(defaultPage);
   const filters = useRef<IFilters>({ page: defaultPage });
-
-  const goToPage = (page: number) => {
-    filters.current.page = page;
-    return doApiCall();
-  };
-
-  const filterCharacters = (name: string) => {
-    if (!name) {
-      filters.current.name = undefined;
-      return goToPage(defaultPage);
-    }
-
-    filters.current.name = name;
-    filters.current.page = undefined;
-    return doApiCall();
-  };
 
   const doApiCall = () => {
     setLoading(true);
@@ -46,6 +30,28 @@ const useCharactersList = (initialData: ICharacterList) => {
         setLoading(false);
       });
   };
+
+  const goToPage = (page: number) => {
+    filters.current.page = page;
+    return doApiCall();
+  };
+
+  const filterCharacters = (name: string) => {
+    if (!name) {
+      filters.current.name = undefined;
+      return goToPage(defaultPage);
+    }
+
+    filters.current.name = name;
+    filters.current.page = undefined;
+    return doApiCall();
+  };
+
+  useEffect(() => {
+    if (!data) {
+      doApiCall();
+    }
+  }, []);
 
   useEffect(() => {
     if (errorOnChangePage) {
