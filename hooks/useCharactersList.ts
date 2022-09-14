@@ -9,7 +9,7 @@ const useCharactersList = (initialData: ICharacterList) => {
   const [data, setData] = useState<ICharacterList>(initialData);
   const [loading, setLoading] = useState(false);
   const [errorOnChangePage, setErrorOnChangePage] = useState(null);
-  const [amountOfPages, setAmountOfPages] = useState(0);
+  const [amountOfPages, setAmountOfPages] = useState(initialData.info.pages);
   const [currentPage, setCurrentPage] = useState(defaultPage);
   const filters = useRef<IFilters>({ page: defaultPage });
 
@@ -46,12 +46,6 @@ const useCharactersList = (initialData: ICharacterList) => {
     filters.current.page = undefined;
     return doApiCall();
   };
-
-  // useEffect(() => {
-  //   if (!data) {
-  //     doApiCall();
-  //   }
-  // }, []);
 
   useEffect(() => {
     if (errorOnChangePage) {
