@@ -1,5 +1,6 @@
 const DEFAULT_BASE_URL = "http://localhost:3000";
-const baseUrl = process.env.BASE_URL || DEFAULT_BASE_URL;
+const baseUrl = process.env.NEXT_PUBLIC_HOST || DEFAULT_BASE_URL;
+
 const configs = {
   baseUrl,
   apiBaseUrl: "https://rickandmortyapi.com/graphql",
