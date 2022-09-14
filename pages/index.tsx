@@ -18,7 +18,7 @@ export async function getServerSideProps() {
       },
     };
   } catch (error) {
-    console.log("error has append", error.response.status);
+    console.log("error has append", error);
     return {
       redirect: {
         permanent: true,

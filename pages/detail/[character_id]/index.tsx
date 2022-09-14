@@ -15,7 +15,7 @@ export async function getServerSideProps({ query }: { query: any }) {
 
     return { props: { character: data } };
   } catch (error) {
-    console.log("Detail page error", error.response && error.response.status);
+    console.log("Detail page error", error);
 
     return {
       redirect: {
