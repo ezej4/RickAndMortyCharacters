@@ -7,7 +7,7 @@ const configs = {
   emptyImage: `${baseUrl}/assets/images/rick.jpeg`,
   errorPageImage: `${baseUrl}/assets/images/morty_error_page.png`,
   defaultPage: 1,
-  timeout: 5000,
+  timeout: 7000,
 };
 
 export default configs;
