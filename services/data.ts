@@ -1,4 +1,3 @@
-const baseUrl = "https://rickandmortyapi.com/graphql";
 const getCharactersQuery: string = `
   query getCharacters($page: Int, $name: String) {
     characters(page: $page, filter: { name: $name }) {
@@ -39,4 +38,4 @@ const getCharacterQuery: string = `
     }
 `;
 
-export { baseUrl, getCharactersQuery, getCharacterQuery };
+export { getCharactersQuery, getCharacterQuery };

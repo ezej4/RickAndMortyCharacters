@@ -8,24 +8,22 @@ import styles from "./styles.module.scss";
 
 export async function getServerSideProps({ query }: { query: any }) {
   const { character_id } = query;
-  let result: {
-    character: ICharacter | null;
-    error: any;
-  } = {
-    character: null,
-    error: null,
-  };
 
   try {
     const data = await charactersService.getCharacter(character_id);
-    result.character = data;
-  } catch (error) {
-    result.error = error;
-  }
 
-  return {
-    props: result,
-  };
+    return { props: { character: data } };
+  } catch (error) {
+    console.log("Detail page error", error.response && error.response.status);
+
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/error",
+      },
+      props: {},
+    };
+  }
 }
 
 const Detail = ({ character }: { character: ICharacter }) => {

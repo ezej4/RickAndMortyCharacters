@@ -1,6 +1,6 @@
 const ErrorPage = () => (
     <section>
-
+        ERROR INESPERADO
     </section>
 );
 

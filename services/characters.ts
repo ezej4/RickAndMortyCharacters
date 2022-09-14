@@ -1,14 +1,19 @@
 import axios from "axios";
 import { IFilters, ICharacterList, ICharacter } from "../entities";
-import { baseUrl, getCharactersQuery, getCharacterQuery } from "./data";
+import { getCharactersQuery, getCharacterQuery } from "./data";
+import configs from "../configs";
+
+const axinst = axios.create({
+  baseURL: configs.apiBaseUrl,
+  timeout: 2000,
+});
 
 const getCharacters = async (filters: IFilters) => {
-  const { data } = await axios.post(baseUrl, {
+  const { data } = await axinst.post(configs.apiBaseUrl, {
     query: getCharactersQuery,
     variables: filters,
   });
-  
-  console.log("count")
+
   if (!data.data) {
     throw new Error("No data");
   }
@@ -19,7 +24,7 @@ const getCharacters = async (filters: IFilters) => {
 };
 
 const getCharacter = async (id: number) => {
-  const { data } = await axios.post(baseUrl, {
+  const { data } = await axinst.post(configs.apiBaseUrl, {
     query: getCharacterQuery,
     variables: { id },
   });

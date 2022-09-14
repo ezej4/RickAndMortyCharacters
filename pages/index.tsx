@@ -10,26 +10,22 @@ import styles from "./styles.module.scss";
 import Empty from "../components/empty";
 
 export async function getServerSideProps() {
-  let result: {
-    data: ICharacterList | [];
-    error: any;
-  } = {
-    data: [],
-    error: null,
-  };
-
-  console.time("response")
   try {
     const data = await charactersService.getCharactersFirstPage();
-    result.data = data;
-    console.timeEnd("response")
+    return {
+      props: {
+        data,
+      },
+    };
   } catch (error) {
-    result.error = error;
+    console.log("error has append", error.response.status);
+    return {
+      redirect: {
+        permanent: true,
+        destination: "/error",
+      },
+    };
   }
-
-  return {
-    props: result,
-  };
 }
 
 const List = ({ data, error }: { data: ICharacterList; error: any }) => {
@@ -55,7 +51,7 @@ const List = ({ data, error }: { data: ICharacterList; error: any }) => {
     <>
       <Head>
         <meta charSet="utf-8" />
-        {/* <link rel="shortcut icon" href="/favicon.ico" /> */}
+        <link rel="shortcut icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title></title>
       </Head>
