@@ -57,7 +57,8 @@ const List = ({ data }: { data: ICharacterList; error: any }) => {
       </Head>
       <main className={styles.list}>
         <Container className={styles.container}>
-          <h2 className={styles.title}>Characters</h2>
+          <h1 className={styles.title}>Rick and Morty WebApp</h1>
+          <h2 className={styles.subtitle}>Find your favorite character</h2>
           <FilterByName filterCharacters={filterCharacters} />
           {showLoader && <Loader />}
           {showEmptyState && <Empty title="No Results" />}

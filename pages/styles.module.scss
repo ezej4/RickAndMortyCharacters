@@ -16,11 +16,18 @@
   width: 100%;
 }
 
-.title {
+.title, .subtitle{
   text-align: center;
-  font-size: 24px;
   font-weight: 700;
-  margin-bottom: 24px;
+}
+
+.title{
+  font-size: 32px;
+  margin-bottom: 48px;
+}
+
+.subtitle {
+  font-size: 20px;
 }
 
 .pagination {
