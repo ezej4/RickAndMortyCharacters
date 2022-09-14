@@ -23,8 +23,8 @@
 }
 
 .title {
-  font-size: 32px;
-  margin-bottom: 48px;
+  font-size: 22px;
+  margin-bottom: 24px;
   width: 100%;
   padding: 0 8px;
   border-radius: 5px;
@@ -32,7 +32,7 @@
 }
 
 .subtitle {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .pagination {
@@ -51,5 +51,14 @@
   .list {
     max-width: $desktop-min-width;
     min-width: none;
+  }
+
+  .title {
+    font-size: 32px;
+    margin-bottom: 48px;
+  }
+
+  .subtitle {
+    font-size: 20px;
   }
 }
