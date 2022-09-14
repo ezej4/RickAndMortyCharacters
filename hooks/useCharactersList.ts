@@ -1,10 +1,11 @@
 import { useState, useEffect, useRef } from "react";
+import Router from "next/router";
 import { ICharacterList, IFilters } from "../entities";
 import * as charactersService from "../services/characters";
 import configs from "../configs";
 const { defaultPage } = configs;
 
-const useCharactersList = (initialData: ICharacterList, error: any) => {
+const useCharactersList = (initialData: ICharacterList) => {
   const [data, setData] = useState(initialData);
   const [loading, setLoading] = useState(false);
   const [errorOnChangePage, setErrorOnChangePage] = useState(null);
@@ -47,10 +48,10 @@ const useCharactersList = (initialData: ICharacterList, error: any) => {
   };
 
   useEffect(() => {
-    if (error || errorOnChangePage) {
-      console.log("error", error);
+    if (errorOnChangePage) {
+      Router.push("/error");
     }
-  }, [error, errorOnChangePage]);
+  }, [errorOnChangePage]);
 
   return {
     data,

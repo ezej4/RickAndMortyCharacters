@@ -28,7 +28,7 @@ export async function getServerSideProps() {
   }
 }
 
-const List = ({ data, error }: { data: ICharacterList; error: any }) => {
+const List = ({ data }: { data: ICharacterList; error: any }) => {
   const {
     data: dataCharacters,
     loading,
@@ -36,7 +36,7 @@ const List = ({ data, error }: { data: ICharacterList; error: any }) => {
     currentPage,
     goToPage,
     filterCharacters,
-  } = useCharactersList(data, error);
+  } = useCharactersList(data);
 
   const emptyResult = dataCharacters.results.length === 0;
   const showLoader = loading;

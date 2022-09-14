@@ -34,12 +34,15 @@
 }
 
 .title {
+  color: $bg-color;
   text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 4px 0;
+  border-radius: 5px;
 }
 
 .texts {
   width: 100%;
-  margin-left: 24px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 14px;
@@ -86,7 +89,6 @@
     align-items: center;
     gap: 40px;
     padding: 40px;
-  
   }
   .title {
     margin-top: 12px;
@@ -102,10 +104,9 @@
       max-width: 400px;
     }
   }
-  .episodes{
+  .episodes {
     &_list {
-    width: 400px;
-
+      width: 400px;
     }
   }
 }
