@@ -50,7 +50,7 @@ const Detail = ({ character }: { character: ICharacter }) => {
   const router = useRouter();
 
   const goBack = () => {
-    return router.back();
+    return router.push('/');
   };
 
   return (

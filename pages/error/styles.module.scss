@@ -1,0 +1,54 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
+.error {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background: url("../../public/assets/images/morty_error_page_mobile.jpg");
+
+  width: 100%;
+  height: 100vh;
+}
+
+.texts {
+  position: absolute;
+  bottom: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: $blue-color;
+  border-radius: 5px;
+  color: $bg-color;
+  width: 100%;
+  padding: 24px 0;
+}
+.title {
+  font-size: 24px;
+}
+
+.desc {
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+@include for-desktop {
+  .error {
+    background: url("../../public/assets/images/morty_error_page_desktop.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .texts {
+    padding: 24px 0;
+  }
+  .title {
+    font-size: 32px;
+  }
+
+  .desc {
+    margin-top: 18px;
+    font-size: 18px;
+  }
+}

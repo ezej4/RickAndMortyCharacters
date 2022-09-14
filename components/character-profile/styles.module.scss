@@ -21,6 +21,14 @@
   margin-top: 24px;
 }
 
+.title,
+.episodes_title {
+  color: $bg-color;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+}
+
 .profile {
   display: flex;
   flex-direction: column;
@@ -35,11 +43,7 @@
 }
 
 .title {
-  color: $bg-color;
-  text-align: center;
-  background: rgba(0, 0, 0, 0.5);
   padding: 4px 0;
-  border-radius: 5px;
 }
 
 .texts {
@@ -67,9 +71,11 @@
 .episodes {
   display: flex;
   flex-direction: column;
+
   &_title {
-    text-align: center;
+    color: $bg-color;
   }
+
   &_list {
     margin: 14px auto 24px;
     flex-direction: column;
@@ -87,10 +93,15 @@
   .profile {
     flex-direction: row;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     gap: 40px;
     padding: 40px;
   }
+
+  .texts {
+   margin-top: 0;
+  }
+  
   .title {
     margin-top: 12px;
     font-size: 24px;
