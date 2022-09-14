@@ -9,31 +9,28 @@ import useCharactersList from "../hooks/useCharactersList";
 import styles from "./styles.module.scss";
 import Empty from "../components/empty";
 
-// export async function getServerSideProps() {
-//   console.log("entrando a get server side props")
-//   try {
-//     const data = await charactersService.getCharactersFirstPage();
-//     console.log("saliiendo de get server side props")
+export async function getStaticProps() {
+  try {
+    const data = await charactersService.getCharactersFirstPage();
 
-//     return {
-//       props: {
-//         data,
-//       },
-//     };
-//   } catch (error) {
-//     console.log("error has append", error);
+    return {
+      props: {
+        data,
+      },
+    };
+  } catch (error) {
+    console.log("error has append", error);
 
-//     return {
-//       redirect: {
-//         permanent: true,
-//         destination: "/error",
-//       },
-//     };
-//   }
-// }
+    return {
+      redirect: {
+        permanent: true,
+        destination: "/error",
+      },
+    };
+  }
+}
 
 const List = ({ data }: { data: ICharacterList }) => {
-  console.log("entrando a list");
   const {
     data: dataCharacters,
     loading,

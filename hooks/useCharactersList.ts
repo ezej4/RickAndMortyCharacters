@@ -6,7 +6,7 @@ import configs from "../configs";
 const { defaultPage } = configs;
 
 const useCharactersList = (initialData: ICharacterList) => {
-  const [data, setData] = useState<ICharacterList>();
+  const [data, setData] = useState<ICharacterList>(initialData);
   const [loading, setLoading] = useState(false);
   const [errorOnChangePage, setErrorOnChangePage] = useState(null);
   const [amountOfPages, setAmountOfPages] = useState(0);
@@ -47,11 +47,11 @@ const useCharactersList = (initialData: ICharacterList) => {
     return doApiCall();
   };
 
-  useEffect(() => {
-    if (!data) {
-      doApiCall();
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (!data) {
+  //     doApiCall();
+  //   }
+  // }, []);
 
   useEffect(() => {
     if (errorOnChangePage) {

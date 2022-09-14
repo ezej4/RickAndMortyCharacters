@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { GetStaticPaths } from "next";
 import { useRouter } from "next/router";
 import { Container } from "@mui/material";
 import { ArrowBack } from "@mui/icons-material";
@@ -7,8 +8,15 @@ import { ICharacter } from "../../../entities";
 import * as charactersService from "../../../services/characters";
 import styles from "./styles.module.scss";
 
-export async function getServerSideProps({ query }: { query: any }) {
-  const { character_id } = query;
+export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
+  return {
+    paths: [],
+    fallback: "blocking",
+  };
+};
+
+export async function getStaticProps({ params }: { params: any }) {
+  const { character_id } = params;
 
   try {
     const data = await charactersService.getCharacter(character_id);
