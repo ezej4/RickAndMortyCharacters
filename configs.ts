@@ -6,7 +6,7 @@ const configs = {
   apiBaseUrl: "https://rickandmortyapi.com/graphql",
   emptyImage: `${baseUrl}/assets/images/rick.jpeg`,
   defaultPage: 1,
-  timeout: 3000,
+  timeout: 5000,
 };
 
 export default configs;

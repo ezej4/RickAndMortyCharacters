@@ -10,12 +10,16 @@ import styles from "./styles.module.scss";
 export const getStaticPaths = async () => {
   /* Here we will generate all the static pages for the detail pages,
     This only could be done only because the id from the page is the same that the page index.
+    https://nextjs.org/docs/basic-features/data-fetching/get-static-props#using-getstaticprops-to-fetch-data-from-a-cms
   */
   const amountOfCharacters = await charactersService.getAmountOfCharacters();
 
-  const paths = Array.from(Array(amountOfCharacters).keys()).map((post) => ({
-    params: { character_id: post.toString() },
-  }));
+  const paths = Array.from(Array(amountOfCharacters).keys())
+    // remove the 0 position
+    .slice(1)
+    .map((post) => ({
+      params: { character_id: post.toString() },
+    }));
 
   return {
     paths,
