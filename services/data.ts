@@ -38,4 +38,14 @@ const getCharacterQuery: string = `
     }
 `;
 
-export { getCharactersQuery, getCharacterQuery };
+const getAmountOfCharactersQuery: string = `
+  query {
+    characters{
+      info{
+        count, 
+      },
+    }
+  }
+  `;
+
+export { getCharactersQuery, getCharacterQuery, getAmountOfCharactersQuery };

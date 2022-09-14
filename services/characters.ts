@@ -1,6 +1,6 @@
 import axios from "axios";
 import { IFilters, ICharacterList, ICharacter } from "../entities";
-import { getCharactersQuery, getCharacterQuery } from "./data";
+import { getCharactersQuery, getCharacterQuery, getAmountOfCharactersQuery } from "./data";
 import configs from "../configs";
 
 const axinst = axios.create({
@@ -39,4 +39,18 @@ const getCharactersFirstPage = async () => {
   return await getCharacters({ page: 1 });
 };
 
-export { getCharacters, getCharacter, getCharactersFirstPage };
+const getAmountOfCharacters = async () => {
+  const { data } = await axinst.post(configs.apiBaseUrl, {
+    query: getAmountOfCharactersQuery,
+  });
+
+  if (!data.data || !data.data.characters) {
+    throw new Error("No data");
+  }
+
+  const amountOfCharacters = data.data.characters.info.count;
+
+  return amountOfCharacters;
+};
+
+export { getCharacters, getCharacter, getCharactersFirstPage, getAmountOfCharacters };
