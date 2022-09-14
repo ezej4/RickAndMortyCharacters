@@ -5,7 +5,7 @@ import configs from "../configs";
 
 const axinst = axios.create({
   baseURL: configs.apiBaseUrl,
-  timeout: 50,
+  timeout: 2000,
 });
 
 const getCharacters = async (filters: IFilters) => {
