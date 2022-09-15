@@ -1,8 +1,8 @@
-import { useState, useEffect, useRef } from "react";
-import Router from "next/router";
-import { ICharacterList, IFilters } from "../entities";
-import * as charactersService from "../services/characters";
-import configs from "../configs";
+import { useState, useEffect, useRef } from 'react';
+import Router from 'next/router';
+import { ICharacterList, IFilters } from '../entities';
+import * as charactersService from '../services/characters';
+import configs from '../configs';
 const { defaultPage } = configs;
 
 const useCharactersList = (initialData: ICharacterList) => {
@@ -19,8 +19,8 @@ const useCharactersList = (initialData: ICharacterList) => {
       .getCharacters(filters.current)
       .then((response) => {
         setData(response);
-        const currentPage = filters.current.page || defaultPage;
-        setCurrentPage(currentPage);
+        const page = filters.current.page || defaultPage;
+        setCurrentPage(page);
         setAmountOfPages(response.info.pages || 0);
       })
       .catch((error) => {
@@ -49,7 +49,7 @@ const useCharactersList = (initialData: ICharacterList) => {
 
   useEffect(() => {
     if (errorOnChangePage) {
-      Router.push("/error");
+      Router.push('/error');
     }
   }, [errorOnChangePage]);
 

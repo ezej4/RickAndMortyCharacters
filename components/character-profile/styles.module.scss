@@ -35,7 +35,6 @@
   border-radius: 4px;
   background: #fafafa;
   padding: 12px;
-  margin-bottom: 12px;
 }
 .image_container {
   display: flex;
@@ -79,7 +78,7 @@
   &_list {
     margin: 14px auto 24px;
     flex-direction: column;
-    max-height: 150px;
+    max-height: 100px;
     width: 270px;
     overflow: auto;
     background: white;
@@ -96,6 +95,7 @@
     align-items: flex-start;
     gap: 40px;
     padding: 40px;
+    margin-bottom: 12px;
   }
 
   .texts {
@@ -119,6 +119,7 @@
   .episodes {
     &_list {
       width: 400px;
+      max-height: 150px;
     }
   }
 }

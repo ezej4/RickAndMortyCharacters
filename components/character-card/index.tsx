@@ -1,18 +1,18 @@
-import CardMedia from "@mui/material/CardMedia";
-import ImageListItemBar from "@mui/material/ImageListItemBar";
-import { CardActionArea, CardActions, CardContent } from "@mui/material";
-import { ISummarizedCharacter } from "../../entities";
-import styles from "./styles.module.scss";
+import CardMedia from '@mui/material/CardMedia';
+import ImageListItemBar from '@mui/material/ImageListItemBar';
+import { CardActionArea, CardContent } from '@mui/material';
+import { ISummarizedCharacter } from '../../entities';
+import styles from './styles.module.scss';
 
 const CharacterCard = ({ character }: { character: ISummarizedCharacter }) => {
   return (
     <CardActionArea className={styles.card} href={`/detail/${character.id}`}>
       <CardMedia
-        component="img"
-        height="180"
+        component='img'
+        height='180'
         src={character.image}
         alt={character.name}
-        loading="lazy"
+        loading='lazy'
       />
       <CardContent>
         <ImageListItemBar title={character.name} />

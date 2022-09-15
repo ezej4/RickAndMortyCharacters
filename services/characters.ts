@@ -1,7 +1,7 @@
-import axios from "axios";
-import { IFilters, ICharacterList, ICharacter } from "../entities";
-import { getCharactersQuery, getCharacterQuery, getAmountOfCharactersQuery } from "./data";
-import configs from "../configs";
+import axios from 'axios';
+import { IFilters, ICharacterList, ICharacter } from '../entities';
+import { getCharactersQuery, getCharacterQuery, getAmountOfCharactersQuery } from './data';
+import configs from '../configs';
 
 const axinst = axios.create({
   baseURL: configs.apiBaseUrl,
@@ -15,7 +15,7 @@ const getCharacters = async (filters: IFilters) => {
   });
 
   if (!data.data) {
-    throw new Error("No data");
+    throw new Error('No data');
   }
 
   const result: ICharacterList = data.data.characters;
@@ -29,14 +29,15 @@ const getCharacter = async (id: number) => {
     variables: { id },
   });
   if (!data.data) {
-    throw new Error("No data");
+    throw new Error('No data');
   }
   const result: ICharacter = data.data.character;
   return result;
 };
 
 const getCharactersFirstPage = async () => {
-  return await getCharacters({ page: 1 });
+  const data = await getCharacters({ page: 1 });
+  return data;
 };
 
 const getAmountOfCharacters = async () => {
@@ -45,7 +46,7 @@ const getAmountOfCharacters = async () => {
   });
 
   if (!data.data || !data.data.characters) {
-    throw new Error("No data");
+    throw new Error('No data');
   }
 
   const amountOfCharacters = data.data.characters.info.count;

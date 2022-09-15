@@ -1,4 +1,4 @@
-import ISummarizedCharacter from "./summarized-character";
+import ISummarizedCharacter from './summarized-character';
 
 interface ICharacterList {
   info: {

@@ -1,12 +1,12 @@
-import ImageListItem from "@mui/material/ImageListItem";
-import { ISummarizedCharacter } from "../../entities";
-import CharacterCard from "../character-card";
-import styles from "./styles.module.scss";
+import ImageListItem from '@mui/material/ImageListItem';
+import { ISummarizedCharacter } from '../../entities';
+import CharacterCard from '../character-card';
+import styles from './styles.module.scss';
 
 const CharacterList = ({ characters }: { characters: ISummarizedCharacter[] }) => {
   return (
     <section>
-      <ul className={styles.list}>
+      <ul className={styles.list}  data-testid="character-list">
         {characters.length > 0 &&
           characters.map((character) => (
             <ImageListItem key={character.id}>

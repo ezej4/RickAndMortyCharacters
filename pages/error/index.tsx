@@ -1,7 +1,4 @@
-import Image from "next/image";
-import styles from "./styles.module.scss";
-import configs from "../../configs";
-const { errorPageImage } = configs;
+import styles from './styles.module.scss';
 
 const ErrorPage = () => (
   <section className={styles.error}>

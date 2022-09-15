@@ -6,17 +6,16 @@
   background-position: center;
   background-size: cover;
   background: url("../../public/assets/images/morty_error_page_mobile.jpg");
-
   width: 100%;
   height: 100vh;
 }
 
 .texts {
   position: absolute;
-  bottom: 120px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  bottom: 120px;
   background: $blue-color;
   border-radius: 5px;
   color: $bg-color;

@@ -1,47 +1,32 @@
-import { useState, useEffect, useRef } from "react";
-import Box from "@mui/material/Box";
-import { Search, Delete } from "@mui/icons-material";
-import TextField from "@mui/material/TextField";
-import styles from "./styles.module.scss";
+import Box from '@mui/material/Box';
+import { Search, Delete } from '@mui/icons-material';
+import TextField from '@mui/material/TextField';
+import styles from './styles.module.scss';
+import useDelayedInput from '../../hooks/useDelayedSearch';
 
 const FilterByName = ({ filterCharacters }: { filterCharacters: (name: string) => {} }) => {
-  const [name, setName] = useState("");
-  const startTimmer = useRef(false);
-  const isSearching = name.length > 0;
-
-  useEffect(() => {
-    if (!startTimmer.current) return;
-    const search = setTimeout(() => {
-      // delay the filter 500s
-      filterCharacters(name);
-    }, 500);
-    return () => clearTimeout(search);
-  }, [name]);
-
-  const handleTextChange = (e: any) => {
-    startTimmer.current = true;
-    setName(e.target.value);
-  };
+  const { value, handleTextChange, isTyping, resetText } = useDelayedInput(500, filterCharacters);
 
   return (
     <Box className={styles.filter_container}>
       <TextField
         className={styles.input}
-        variant="standard"
-        id="input-with-sx"
-        value={name}
+        variant='standard'
+        id='input-with-sx'
+        data-testid='input-text'
+        name="input-text"
+        value={value}
         onChange={handleTextChange}
       />
-      {isSearching ? (
+      {isTyping ? (
         <Delete
           className={styles.delete_icon}
-          sx={{ color: "action.active", mr: 1, my: 0.5 }}
-          onClick={() => {
-            setName("");
-          }}
+          data-testid='delete-icon'
+          sx={{ color: 'action.active', mr: 1, my: 0.5 }}
+          onClick={resetText}
         />
       ) : (
-        <Search sx={{ color: "action.active", mr: 1, my: 0.5 }} />
+        <Search data-testid='search-icon' sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
       )}
     </Box>
   );
