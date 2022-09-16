@@ -4,7 +4,7 @@ const ErrorPage = () => (
   <section className={styles.error}>
     <div className={styles.texts}>
       <h1 className={styles.title}>Ops, Something went wrong</h1>
-      <p className={styles.desc}>Try to refresh the page, or feel free to contact us</p>
+      <p className={styles.desc}>Feel free to contact us if the problem continues</p>
     </div>
   </section>
 );

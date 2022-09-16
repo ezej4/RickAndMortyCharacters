@@ -13,11 +13,9 @@ const getCharacters = async (filters: IFilters) => {
     query: getCharactersQuery,
     variables: filters,
   });
-
   if (!data.data) {
     throw new Error('No data');
   }
-
   const result: ICharacterList = data.data.characters;
 
   return result;
@@ -32,11 +30,13 @@ const getCharacter = async (id: number) => {
     throw new Error('No data');
   }
   const result: ICharacter = data.data.character;
+
   return result;
 };
 
 const getCharactersFirstPage = async () => {
   const data = await getCharacters({ page: 1 });
+
   return data;
 };
 
@@ -44,11 +44,9 @@ const getAmountOfCharacters = async () => {
   const { data } = await axinst.post(configs.apiBaseUrl, {
     query: getAmountOfCharactersQuery,
   });
-
   if (!data.data || !data.data.characters) {
     throw new Error('No data');
   }
-
   const amountOfCharacters = data.data.characters.info.count;
 
   return amountOfCharacters;

@@ -1,6 +1,6 @@
-@import "styles/variables";
-@import "styles/fonts";
-@import "styles/mixins";
+@import 'styles/variables';
+@import 'styles/fonts';
+@import 'styles/mixins';
 
 * {
   box-sizing: border-box;
@@ -12,17 +12,26 @@
 body {
   font-family: roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
     Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  background: url("../public/assets/images/background.png");
+  background: url('../public/assets/images/background.png');
   background-repeat: no-repeat;
   background-size: cover;
   backdrop-filter: blur(7px) sepia(1);
-  position: absolute;
-
+  position: relative;
+  min-height: 100vh;
+  height: auto;
+  width: 100%;
 }
-html,
-body {
+html {
   width: 100%;
   height: 100%;
+}
+
+#__next{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 html,

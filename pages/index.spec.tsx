@@ -14,7 +14,7 @@ jest.mock('../services/characters');
 const mockGetCharacters = (
   response: ISummarizedCharacter[],
   count: number = 1,
-  pages: number = 1,
+  pages: number = 1
 ) => {
   return (characterService.getCharacters as jest.Mock).mockResolvedValueOnce({
     info: {
@@ -42,7 +42,7 @@ describe('ListPage integration test', () => {
           mockGetCharacters(characterListMockSecondPage.results);
           // step 2 render the component with the first page of characters
           render(<ListPage data={characterListMock} />);
-          // step 3 search for the next button 
+          // step 3 search for the next button
           // -- warning here! the data-testid provided here is from the material-ui library
           const nextButton = screen.getByTestId('NavigateNextIcon');
           // step 4 click on the next button

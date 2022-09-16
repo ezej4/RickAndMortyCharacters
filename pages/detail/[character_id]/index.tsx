@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { Container } from '@mui/material';
@@ -17,7 +18,7 @@ export const getStaticPaths = async () => {
     // remove the 0 position
     .slice(1)
     .map((post) => ({
-      params: { characterId: post.toString() },
+      params: { character_id: post.toString() },
     }));
 
   return {
@@ -26,11 +27,11 @@ export const getStaticPaths = async () => {
   };
 };
 
-export async function getStaticProps({ params }: { params: { characterId: number } }) {
-  const { characterId } = params;
+export async function getStaticProps({ params }: { params: { character_id: number } }) {
+  const { character_id } = params;
 
   try {
-    const data = await charactersService.getCharacter(characterId);
+    const data = await charactersService.getCharacter(character_id);
 
     return { props: { character: data } };
   } catch (error) {
