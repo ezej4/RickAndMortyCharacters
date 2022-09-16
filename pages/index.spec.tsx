@@ -4,26 +4,12 @@ import {
   characterListMock,
   characterListMockEmpty,
   characterListMockSecondPage,
+  mockGetCharacters,
 } from '../test-utils/mocks';
-import * as characterService from '../services/characters';
 import ListPage from '.';
 import { ISummarizedCharacter } from '../entities';
 
 jest.mock('../services/characters');
-
-const mockGetCharacters = (
-  response: ISummarizedCharacter[],
-  count: number = 1,
-  pages: number = 1
-) => {
-  return (characterService.getCharacters as jest.Mock).mockResolvedValueOnce({
-    info: {
-      count,
-      pages,
-    },
-    results: response,
-  });
-};
 
 describe('ListPage integration test', () => {
   beforeEach(() => {
@@ -39,7 +25,7 @@ describe('ListPage integration test', () => {
       describe('When the user click on the next button', () => {
         it('Should render the next page', async () => {
           // step 1 mock the service to return the second page of characters
-          mockGetCharacters(characterListMockSecondPage.results);
+          mockGetCharacters('secondPage');
           // step 2 render the component with the first page of characters
           render(<ListPage data={characterListMock} />);
           // step 3 search for the next button
@@ -64,7 +50,7 @@ describe('ListPage integration test', () => {
           // step 1 select a test case
           const testCharacter: ISummarizedCharacter = characterListMock.results[0];
           // step 2 mock the service for when the user type something, the service returns the character mocked
-          mockGetCharacters([testCharacter]);
+          mockGetCharacters('onlyFirstElement');
           // step 3 render the component with an empty list
           render(<ListPage data={characterListMockEmpty} />);
           // step 4 select the element to interact with
@@ -90,7 +76,8 @@ describe('ListPage integration test', () => {
         it('Should render the initial list', async () => {
           const testCharacter: ISummarizedCharacter = characterListMock.results[0];
 
-          mockGetCharacters([testCharacter]);
+          mockGetCharacters('onlyFirstElement');
+
           render(<ListPage data={characterListMockEmpty} />);
           const filterInput = screen
             .getByTestId('input-text')
@@ -122,7 +109,8 @@ describe('ListPage integration test', () => {
         it('Should render the empty state ', async () => {
           const testCharacter: ISummarizedCharacter = characterListMock.results[0];
           // note that we are mocking the service to return an empty list
-          mockGetCharacters([]);
+          mockGetCharacters('empty');
+
           render(<ListPage data={characterListMockEmpty} />);
           const filterInput = screen
             .getByTestId('input-text')

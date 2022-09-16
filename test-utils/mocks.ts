@@ -1,4 +1,5 @@
-import { ICharacter, ICharacterList } from '../entities';
+import { ICharacter, ICharacterList, ISummarizedCharacter } from '../entities';
+import * as characterService from '../services/characters';
 
 const characterMock: ICharacter = {
   id: 1,
@@ -148,4 +149,40 @@ const characterListMockEmpty: ICharacterList = {
   results: [],
 };
 
-export { characterMock, characterListMock, characterListMockEmpty, characterListMockSecondPage };
+type Mockcases = '' | 'firstPage' | 'secondPage' | 'onlyFirstElement' | 'empty';
+
+const mockGetCharacters = (currentCase: Mockcases) => {
+  switch (currentCase) {
+    case 'empty':
+      return (characterService.getCharacters as jest.Mock).mockResolvedValueOnce({
+        info: {
+          count: 0,
+          pages: 0,
+        },
+        results: [],
+      });
+    case 'secondPage':
+      return (characterService.getCharacters as jest.Mock).mockResolvedValueOnce(
+        characterListMockSecondPage,
+      );
+    case 'onlyFirstElement':
+      return (characterService.getCharacters as jest.Mock).mockResolvedValueOnce({
+        info: {
+          count: 1,
+          pages: 1,
+        },
+        results: [characterListMock.results[0]],
+      });
+    case 'firstPage':
+    default:
+      return (characterService.getCharacters as jest.Mock).mockResolvedValueOnce(characterListMock);
+  }
+};
+
+export {
+  characterMock,
+  characterListMock,
+  characterListMockEmpty,
+  characterListMockSecondPage,
+  mockGetCharacters,
+};
