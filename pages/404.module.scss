@@ -1,0 +1,52 @@
+@import '../styles/variables.scss';
+@import '../styles/mixins.scss';
+
+.error {
+  background: url('../public/assets/images/rick_morty404.jpeg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+
+  &__texts {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: $blue-color;
+    bottom: 0;
+    border-radius: 5px;
+    color: $bg-color;
+    width: 100%;
+    padding: 24px 0;
+  }
+  &__title {
+    font-size: 24px;
+  }
+
+  &__desc {
+    margin-top: 12px;
+    font-size: 14px;
+  }
+}
+
+@include for-desktop {
+  .error {
+    &__texts {
+      margin: auto;
+      padding: 24px 0;
+      width: 800px;
+      left: calc(50% - 400px);
+
+      &__title {
+        font-size: 32px;
+      }
+
+      &__desc {
+        margin-top: 18px;
+        font-size: 18px;
+      }
+    }
+  }
+}

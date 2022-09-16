@@ -1,7 +1,7 @@
 
-import DetailPage from '.';
+import DetailPage from '../../pages/detail/[character_id]/index';
 import { render, screen } from '@testing-library/react';
-import { characterMock } from '../../../test-utils/mocks';
+import { characterMock } from '../../test-utils/mocks';
 
 jest.mock('next/image', () => ({
   __esModule: true,
