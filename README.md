@@ -1,7 +1,7 @@
 
 # Rick and Morty challenge
 
-## A basic web app to show the characters of the series.
+## A basic web app to show the characters of the serie.
 
  made with [Nextjs](https://nextjs.org/)
 
