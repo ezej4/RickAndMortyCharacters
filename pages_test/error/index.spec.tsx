@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import ErrorPage from '.';
+import ErrorPage from '../../pages/error';
 
 jest.mock('next/image', () => ({
   __esModule: true,

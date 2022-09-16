@@ -6,7 +6,7 @@ import {
   characterListMockSecondPage,
   mockGetCharacters,
 } from '../test-utils/mocks';
-import ListPage from '.';
+import ListPage from '../pages';
 import { ISummarizedCharacter } from '../entities';
 
 jest.mock('../services/characters');
