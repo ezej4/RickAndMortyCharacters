@@ -1,8 +1,8 @@
-@import "../../styles/variables.scss";
-@import "../../styles/mixins.scss";
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
 
 .error {
-  background: url("../../public/assets/images/morty_error_page_mobile.jpg");
+  background: url('../../public/assets/images/morty_error_page_mobile.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -16,9 +16,10 @@
   flex-direction: column;
   align-items: center;
   bottom: 120px;
-  background: $black-color;
+  background: $bg-color;
   border-radius: 5px;
-  color: $bg-color;
+  bottom: 0;
+  color: $black-color;
   width: 100%;
   padding: 24px 0;
 }
@@ -33,7 +34,7 @@
 
 @include for-desktop {
   .error {
-    background: url("../../public/assets/images/morty_error_page_desktop.jpg");
+    background: url('../../public/assets/images/morty_error_page_desktop.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;

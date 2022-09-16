@@ -54,9 +54,12 @@ Shows a 404 page if the required page does not exist.
 - Simple code and easy to read
 - Great test coverage.
 
-#### If you deploy this project on a server please create a .env file in your root folder, with the following variable:
-
 ## Author
 
 - Ezequiel Fabbroni
 
+#### If you deploy this project on a server please create a .env file in your root folder, with the following variable:
+ 
+```bash
+  NEXT_PUBLIC_HOST = ${host_url}
+```

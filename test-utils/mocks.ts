@@ -149,7 +149,7 @@ const characterListMockEmpty: ICharacterList = {
   results: [],
 };
 
-type Mockcases = '' | 'firstPage' | 'secondPage' | 'onlyFirstElement' | 'empty';
+type Mockcases = '' | 'firstPage' | 'secondPage' | 'onlyFirstElement' | 'empty' | 'firstPageFail';
 
 const mockGetCharacters = (currentCase: Mockcases) => {
   switch (currentCase) {
@@ -163,7 +163,7 @@ const mockGetCharacters = (currentCase: Mockcases) => {
       });
     case 'secondPage':
       return (characterService.getCharacters as jest.Mock).mockResolvedValueOnce(
-        characterListMockSecondPage,
+        characterListMockSecondPage
       );
     case 'onlyFirstElement':
       return (characterService.getCharacters as jest.Mock).mockResolvedValueOnce({
@@ -173,10 +173,42 @@ const mockGetCharacters = (currentCase: Mockcases) => {
         },
         results: [characterListMock.results[0]],
       });
+    case 'firstPageFail': {
+      (characterService.getCharactersFirstPage as jest.Mock).mockRejectedValue(
+        new Error('Error getting characters')
+      );
+      (characterService.getCharacters as jest.Mock).mockRejectedValue(
+        new Error('Error getting characters')
+      );
+      return;
+    }
+
     case 'firstPage':
     default:
-      return (characterService.getCharacters as jest.Mock).mockResolvedValueOnce(characterListMock);
+      (characterService.getCharactersFirstPage as jest.Mock).mockResolvedValueOnce(
+        characterListMock
+      );
+      (characterService.getCharacters as jest.Mock).mockResolvedValueOnce(characterListMock);
+      return;
   }
+};
+
+const mockGetCharacter = (currentCase: 'fail' | 'ok') => {
+  switch (currentCase) {
+    case 'fail':
+      return (characterService.getCharacter as jest.Mock).mockRejectedValue(
+        new Error('Error getting character')
+      );
+
+    case 'ok':
+    default:
+      (characterService.getCharacter as jest.Mock).mockResolvedValueOnce(characterMock);
+      return;
+  }
+};
+
+const mockGetAmountOfCharacters = (amount: number = 100) => {
+  return (characterService.getAmountOfCharacters as jest.Mock).mockResolvedValue(amount);
 };
 
 export {
@@ -185,4 +217,6 @@ export {
   characterListMockEmpty,
   characterListMockSecondPage,
   mockGetCharacters,
+  mockGetCharacter,
+  mockGetAmountOfCharacters,
 };

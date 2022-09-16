@@ -42,7 +42,6 @@ export async function getStaticProps({ params }: { params: { character_id: numbe
         permanent: false,
         destination: '/error',
       },
-      props: {},
     };
   }
 }
