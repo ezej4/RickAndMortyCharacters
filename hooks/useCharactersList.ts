@@ -5,6 +5,17 @@ import * as charactersService from '../services/characters';
 import configs from '../configs';
 const { defaultPage } = configs;
 
+/**
+ * Hook to get characters list with pagination and state management
+  * @param initialData - the initial data to be used
+  * @returns data - the characters list
+  * @returns loading - if the data is being fetched
+  * @returns errorOnChangePage - if there was an error while changing page
+  * @returns amountOfPages - the amount of pages
+  * @returns currentPage - the current page
+  * @returns goToPage - function to go to a specific page
+  * @returns filterCharacters - function to filter characters by name
+  */
 const useCharactersList = (initialData: ICharacterList) => {
   const [data, setData] = useState<ICharacterList>(initialData);
   const [loading, setLoading] = useState(false);
