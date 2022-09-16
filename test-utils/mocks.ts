@@ -1,4 +1,4 @@
-import { ICharacter, ICharacterList, ISummarizedCharacter } from '../entities';
+import { ICharacter, ICharacterList } from '../entities';
 import * as characterService from '../services/characters';
 
 const characterMock: ICharacter = {

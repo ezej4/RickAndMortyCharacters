@@ -10,17 +10,18 @@ const FilterByName = ({ filterCharacters }: { filterCharacters: (name: string) =
   return (
     <Box className={styles.filter_container}>
       <TextField
-        className={styles.input}
+        className={styles.filter_container__input}
         variant='standard'
         id='input-with-sx'
         data-testid='input-text'
+        placeholder='Search'
         name="input-text"
         value={value}
         onChange={handleTextChange}
       />
       {isTyping ? (
         <Delete
-          className={styles.delete_icon}
+          className={styles.filter_container__delete_icon}
           data-testid='delete-icon'
           sx={{ color: 'action.active', mr: 1, my: 0.5 }}
           onClick={resetText}

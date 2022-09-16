@@ -11,9 +11,9 @@ const Episodes = ({
   episodes: { name: string; episode: string }[];
   styles: any;
 }) => (
-  <div className={styles.episodes}>
-    <h5 className={styles.episodes_title}>Episodes</h5>
-    <List className={styles.episodes_list}>
+  <div className={styles.profile__episodes}>
+    <h5 className={styles.profile__episodes_title}>Episodes</h5>
+    <List className={styles.profile__episodes_list}>
       {episodes &&
         episodes.map((ep) => (
           <ListItem alignItems='center' key={ep.name}>

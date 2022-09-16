@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { Pagination, Container } from '@mui/material';
-import { CharacterList, Loader, FilterByName, Empty } from '../components';
+import { CharacterList, Loader, FilterByName, Empty, Header } from '../components';
 import { ICharacterList } from '../entities';
 import * as charactersService from '../services/characters';
 import useCharactersList from '../hooks/useCharactersList';
@@ -52,29 +52,32 @@ const List = ({ data }: { data: ICharacterList }) => {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <title>Rick and Morty Character finder</title>
       </Head>
-      <main className={styles.list}>
-        <Container className={styles.container}>
-          <h1 className={styles.title}>Rick and Morty WebApp</h1>
-          <h2 className={styles.subtitle}>Find your favorite character</h2>
+      <div className={styles.page__filter} />
+      <main className={styles.page}>
+        <Header>
           <FilterByName filterCharacters={filterCharacters} />
-          {showLoader && <Loader />}
-          {showEmptyState && <Empty title='No Results' />}
-          {showData && (
-            <>
-              <CharacterList characters={dataCharacters.results} />
-              {showPagination && (
-                <Pagination
-                  count={amountOfPages}
-                  page={currentPage}
-                  onChange={handlePageChange}
-                  showFirstButton
-                  showLastButton
-                  className={styles.pagination}
-                />
-              )}
-            </>
-          )}
-        </Container>
+        </Header>
+        <section className={styles.list}>
+          <Container className={styles.list__container}>
+            {showLoader && <Loader />}
+            {showEmptyState && <Empty title='No Results' />}
+            {showData && (
+              <>
+                <CharacterList characters={dataCharacters.results} />
+                {showPagination && (
+                  <Pagination
+                    count={amountOfPages}
+                    page={currentPage}
+                    onChange={handlePageChange}
+                    showFirstButton
+                    showLastButton
+                    className={styles.list__pagination}
+                  />
+                )}
+              </>
+            )}
+          </Container>
+        </section>
       </main>
     </>
   );

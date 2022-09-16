@@ -11,7 +11,8 @@ const useDelayedInput = (delay: number, callback: (name: string) => {}) => {
       callback(value);
     }, delay);
     return () => clearTimeout(search);
-  }, [callback, delay, value]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [value]);
 
   const handleTextChange = (e: { target: { value: string } }) => {
     startTimmer.current = true;

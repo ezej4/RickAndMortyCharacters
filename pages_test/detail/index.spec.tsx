@@ -15,7 +15,7 @@ describe('Detail', () => {
   describe('Render test', () => {
     it('Should render the fields with the correct values', () => {
       render(<DetailPage character={characterMock} />);
-      const image = screen.getByRole('img');
+      const image = screen.getByAltText(characterMock.name);
       const imageUrl = characterMock.image;
 
       expect(screen.getByText(characterMock.name)).toBeInTheDocument();

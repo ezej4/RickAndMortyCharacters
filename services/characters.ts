@@ -26,7 +26,7 @@ const getCharacter = async (id: number) => {
     query: getCharacterQuery,
     variables: { id },
   });
-  if (!data.data) {
+  if (!data.data || !data.data.character) {
     throw new Error('No data');
   }
   const result: ICharacter = data.data.character;

@@ -1,45 +1,55 @@
-@import "../../../styles/variables.scss";
-@import "../../../styles/mixins.scss";
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+.page {
+  background: url('../../../public/assets/images/background.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  min-height: 100vh;
+  height: auto;
+  width: 100%;
+}
 
 .detail {
   position: relative;
   display: block;
-  color: $blue-color;
+  color: $black-color;
   margin: 0 auto;
   max-width: $mobile-min-width;
   width: 100%;
-}
 
-.container {
-  margin-top: 24px;
-  padding-left: 0;
-  padding-right: 0;
-  width: 100%;
-}
+  &__container {
+    margin-top: 24px;
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+  }
 
-.back_arrow {
-  position:fixed;
-  left: 2px;
-  z-index: 10;
-  color: $bg-color;
-  background: #000;
-  border-radius: 50%;
-  padding: 4px;
+  &__back_arrow {
+    position: fixed;
+    left: 2px;
+    z-index: 10;
+    color: $bg-color;
+    background: $black-color;
+    border-radius: 50%;
+    padding: 4px;
+  }
 }
 
 @include for-desktop {
   .detail {
     max-width: $desktop-min-width;
     margin: 48px auto;
-  }
 
-  .back_arrow {
-    position: absolute;
-    margin-left: 12px;
-    left: auto;
-    top: 60px;
-    &:hover {
-      cursor: pointer;
+    &__back_arrow {
+      position: absolute;
+      margin-left: 12px;
+      left: auto;
+      top: 60px;
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 }

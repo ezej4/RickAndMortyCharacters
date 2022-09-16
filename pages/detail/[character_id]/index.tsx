@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { Container } from '@mui/material';
 import { ArrowBack } from '@mui/icons-material';
-import { CharacterProfile } from '../../../components';
+import { CharacterProfile, Header } from '../../../components';
 import { ICharacter } from '../../../entities';
 import * as charactersService from '../../../services/characters';
 import styles from './styles.module.scss';
@@ -60,11 +60,14 @@ const Detail = ({ character }: { character: ICharacter }) => {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <title>Rick and Morty Character finder</title>
       </Head>
-      <main className={styles.detail}>
-        <Container className={styles.container}>
-          <ArrowBack onClick={goBack} fontSize='large' className={styles.back_arrow} />
-          <CharacterProfile character={character} />
-        </Container>
+      <main className={styles.page}>
+        <Header />
+        <section className={styles.detail}>
+          <Container className={styles.detail__container}>
+            <ArrowBack onClick={goBack} fontSize='large' className={styles.detail__back_arrow} />
+            <CharacterProfile character={character} />
+          </Container>
+        </section>
       </main>
     </>
   );

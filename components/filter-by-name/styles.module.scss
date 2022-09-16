@@ -1,27 +1,35 @@
-@import "../../styles/variables.scss";
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
 
 .filter_container {
   display: flex;
   margin-bottom: 12px;
-  width: 220px;
-  padding: 4px 12px;
-  margin: auto auto 14px;
+  width: 150px;
   svg {
     margin-right: 0;
     color: $bg-color;
   }
+
+  &__input {
+    width: 100%;
+
+    input {
+      color: $bg-color;
+      &::placeholder {
+        color: $bg-color;
+      }
+    }
+    div::after {
+      border-bottom: 2px solid $bg-color;
+    }
+  }
 }
 
-.input {
-  width: 100%;
-
-  input {
-    color: $bg-color;
+@include for-desktop {
+  .filter_container {
+    width: 250px;
+    &__delete_icon:hover {
+      cursor: pointer;
+    }
   }
-  div::after {
-    border-bottom: 2px solid $brown-color;
-  }
-}
-.delete_icon:hover {
-  cursor: pointer;
 }

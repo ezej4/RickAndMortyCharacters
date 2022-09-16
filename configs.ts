@@ -5,6 +5,7 @@ const configs = {
   baseUrl,
   apiBaseUrl: 'https://rickandmortyapi.com/graphql',
   emptyImage: `${baseUrl}/assets/images/rick.jpeg`,
+  logoIcon: `${baseUrl}/assets/images/logo.png`,
   defaultPage: 1,
   timeout: 15000,
 };

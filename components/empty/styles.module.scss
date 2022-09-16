@@ -1,4 +1,4 @@
-@import "../../styles/mixins.scss";
+@import '../../styles/mixins.scss';
 
 .empty {
   position: relative;
@@ -10,29 +10,27 @@
   height: 200px;
   z-index: 1;
 
-}
-.title{
+  &__title {
     margin-top: 12px;
     font-size: 16px;
+  }
 }
 
-
 @include for-big-mobile {
-    .empty {
-        width: 300px;
-        height: 300px;
+  .empty {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@include for-desktop {
+  .empty {
+    margin-top: 24px;
+    width: 400px;
+    height: 400px;
+
+    &__title {
+      font-size: 18px;
     }
   }
-  
-  
-  @include for-desktop {
-    .empty {
-        margin-top: 24px;
-        width: 400px;
-        height: 400px;
-    }
-    .title{
-        font-size: 18px;
-    }
-  }
-  
+}
