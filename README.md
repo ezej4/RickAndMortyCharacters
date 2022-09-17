@@ -52,7 +52,6 @@ Shows a 404 page if the required page does not exist.
 
 - Static Generation: The HTML is generated at build time and will be reused on each request.
 - Nice and plain.
-- Simple code and easy to read
 - Great test coverage.
 
 ## Author
