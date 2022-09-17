@@ -41,10 +41,10 @@ Shows the detail from one character
 | `character_id`      | `string` | **Required**. Id of the selected character |
 
 
-- / error
+- /error
 
 Shows an error page when the API calls fail
-- / *
+- /*
 
 Shows a 404 page if the required page does not exist.
 
