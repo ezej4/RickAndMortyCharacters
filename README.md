@@ -7,8 +7,14 @@
 
 ## Installation
 
+* Clone project
 ```bash
-  npm install
+ git clone https://github.com/ezej4/RickAndMortyCharacters.git && cd RickAndMortyCharacters
+```
+* Install
+
+```bash
+ npm install
 ```
 
 * Start the project in localhost
@@ -20,18 +26,13 @@
 * open a browser in http://localhost:3000
 
 
- 
-```bash
-  NEXT_PUBLIC_HOST = ${host_url}
-```
-
 ## Pages
 
-#### /list 
+- / 
 
 Shows a list from characters
 
-#### /detail/${character_id}
+- /detail/${character_id}
 
 Shows the detail from one character
 
@@ -40,10 +41,10 @@ Shows the detail from one character
 | `character_id`      | `string` | **Required**. Id of the selected character |
 
 
-#### / error
+- /error
 
 Shows an error page when the API calls fail
-#### / *
+- /*
 
 Shows a 404 page if the required page does not exist.
 
@@ -51,7 +52,6 @@ Shows a 404 page if the required page does not exist.
 
 - Static Generation: The HTML is generated at build time and will be reused on each request.
 - Nice and plain.
-- Simple code and easy to read
 - Great test coverage.
 
 ## Author
