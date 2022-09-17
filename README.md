@@ -25,10 +25,6 @@
 
 * open a browser in http://localhost:3000
 
- 
-```bash
-  NEXT_PUBLIC_HOST = ${host_url}
-```
 
 ## Pages
 
