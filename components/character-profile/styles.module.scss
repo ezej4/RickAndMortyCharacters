@@ -40,7 +40,7 @@
 
   &__title {
     padding: 4px 0;
-    width: 280px;
+    width: 100%;
     margin: auto;
   }
 
@@ -103,7 +103,7 @@
 
     &__title {
       margin: 0px auto 0;
-
+      width: 280px;
       font-size: 24px;
     }
     &__group_title,
