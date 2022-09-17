@@ -27,7 +27,7 @@
 
 ## Pages
 
-#### /list 
+#### / 
 
 Shows a list from characters
 
